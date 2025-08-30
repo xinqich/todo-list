@@ -1,0 +1,29 @@
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts
+dist/
+build/
+out/
+
+# Logs
+logs/
+*.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
