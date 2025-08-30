@@ -6,8 +6,56 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>To-Do List</title>
+    <link rel="stylesheet" href="./src/styles.css">
 </head>
 <body>
-
+<div class="container">
+    <h1 class="title">To-Do List</h1>
+    <div class="todo-container ">
+        <div class="add-task">
+            <form action="" class="task-form" id="taskForm">
+                <input type="text" name="task-title" id="taskTitle" class="task-title">
+                <button type="submit" class="submit-task main-btn">Добавить задачу</button>
+            </form>
+        </div>
+        <div class="task-list ">
+            <div class="task">
+                <div class="left-side">
+                    <input type="checkbox" name="task-completed">
+                    <div class="task-title">Lorem ipsum dolor sit amet.</div>
+                </div>
+                <div class="right-side">
+                    <span class="notification"></span>
+                    <button class="main-btn delete-btn">Удалить</button>
+                </div>
+            </div>
+            <div class="task">
+                <div class="left-side">
+                    <input type="checkbox" name="task-completed">
+                    <div class="task-title">delectus aut autem</div>
+                </div>
+                <div class="right-side">
+                    <span class="notification"></span>
+                    <button class="main-btn delete-btn">Удалить</button>
+                </div>
+            </div>
+            <div class="task">
+                <div class="left-side">
+                    <input type="checkbox" name="task-completed">
+                    <div class="task-title">fugiat veniam minus</div>
+                </div>
+                <div class="right-side">
+                    <span class="notification"></span>
+                    <button class="main-btn delete-btn">Удалить</button>
+                </div>
+            </div>
+        </div>
+        <div class="sort-tasks ">
+            <button class="sort-btn main-btn" id="allTasks">Все задачи</button>
+            <button class="sort-btn main-btn" id="completedTasks">Выполненные задачи</button>
+            <button class="sort-btn main-btn" id="notSoCompletedTasks">Невыполненные задачи</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
