@@ -18,31 +18,12 @@
                 <button type="submit" class="submit-task main-btn">Добавить задачу</button>
             </form>
         </div>
-        <div class="task-list ">
-            <div class="task">
+        <div class="task-list " id="taskList">
+            <!--            tasks will appear here         -->
+            <div class="task" id="1">
                 <div class="left-side">
-                    <input type="checkbox" name="task-completed">
+                    <input type="checkbox" class="checkbox">
                     <div class="task-title">Lorem ipsum dolor sit amet.</div>
-                </div>
-                <div class="right-side">
-                    <span class="notification"></span>
-                    <button class="main-btn delete-btn">Удалить</button>
-                </div>
-            </div>
-            <div class="task">
-                <div class="left-side">
-                    <input type="checkbox" name="task-completed">
-                    <div class="task-title">delectus aut autem</div>
-                </div>
-                <div class="right-side">
-                    <span class="notification"></span>
-                    <button class="main-btn delete-btn">Удалить</button>
-                </div>
-            </div>
-            <div class="task">
-                <div class="left-side">
-                    <input type="checkbox" name="task-completed">
-                    <div class="task-title">fugiat veniam minus</div>
                 </div>
                 <div class="right-side">
                     <span class="notification"></span>
@@ -57,5 +38,11 @@
         </div>
     </div>
 </div>
+
+<div class="dev-buttons">
+    <button onclick="saveTasks()">save tasks</button>
+    <button onclick="addTask('Lorem ipsum dolor sit amet.' , false)">Add a task</button>
+</div>
+<script src="src/script.js"></script>
 </body>
 </html>
