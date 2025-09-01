@@ -1,13 +1,6 @@
-loadPlaceholderTasks()
+"use strict";
 
-let taskForm = document.querySelector("#taskForm");
-taskForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    addTask(taskForm.children[0].value);
-    taskForm.reset();
-});
-
-function addTask(
+export function addTask(
     params = {
         id: 0,
         title: "",
@@ -30,7 +23,7 @@ function addTask(
     task.innerHTML = `
         <div class="left-side">
             <input type="checkbox" class="checkbox" ${completed ? "checked" : ""}>
-            <div class="task-title">${title}</div> 
+            <div class="task-title ${completed ? "completed" : ""}">${title}</div> 
         </div>
         <div class="right-side">
             <span class="notification"></span>
@@ -38,22 +31,24 @@ function addTask(
         </div>
     `;
 
-    task.addEventListener("click", (event) => {
+    task.addEventListener("click", function (event) {
         switch (event.target.tagName) {
             case "INPUT":
-                console.log("checked task");
+                task.children[0].children[1].classList.toggle('completed')
                 break;
 
             case "BUTTON":
-                console.log("task deleted");
+                taskList.removeChild(this);
                 break;
         }
+        saveTasks();
     });
 
     taskList.appendChild(task);
+    saveTasks();
 }
 
-function saveTasks() {
+export function saveTasks() {
     const taskList = document.querySelector("#taskList");
     let payload = [];
     for (let task of taskList.children) {
@@ -68,7 +63,24 @@ function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(payload));
 }
 
-function loadPlaceholderTasks() {
+export function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem("tasks"));
+
+    if (!tasks || tasks.length === 0) {
+        return false;
+    }
+
+    tasks.forEach((task) => {
+        addTask({
+            id: task.id,
+            title: task.title,
+            completed: task.completed,
+        });
+    });
+    return true;
+}
+
+export function loadPlaceholderTasks() {
     fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
         .then((r) => r.json())
         .then((json) => {
@@ -81,3 +93,5 @@ function loadPlaceholderTasks() {
             });
         });
 }
+
+export function sortTasks() {}
