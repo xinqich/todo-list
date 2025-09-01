@@ -14,23 +14,11 @@
     <div class="todo-container ">
         <div class="add-task">
             <form action="" class="task-form" id="taskForm">
-                <input type="text" name="task-title" id="taskTitle" class="task-title">
+                <input type="text" name="task-title" class="task-title-input">
                 <button type="submit" class="submit-task main-btn">Добавить задачу</button>
             </form>
         </div>
-        <div class="task-list " id="taskList">
-            <!--            tasks will appear here         -->
-            <div class="task" id="1">
-                <div class="left-side">
-                    <input type="checkbox" class="checkbox">
-                    <div class="task-title">Lorem ipsum dolor sit amet.</div>
-                </div>
-                <div class="right-side">
-                    <span class="notification"></span>
-                    <button class="main-btn delete-btn">Удалить</button>
-                </div>
-            </div>
-        </div>
+        <div class="task-list " id="taskList"></div>
         <div class="sort-tasks ">
             <button class="sort-btn main-btn" id="allTasks">Все задачи</button>
             <button class="sort-btn main-btn" id="completedTasks">Выполненные задачи</button>
@@ -43,6 +31,6 @@
     <button onclick="saveTasks()">save tasks</button>
     <button onclick="addTask('Lorem ipsum dolor sit amet.' , false)">Add a task</button>
 </div>
-<script src="src/script.js"></script>
+<script src="src/main.js" type="module"></script>
 </body>
 </html>
