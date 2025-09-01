@@ -19,13 +19,19 @@
 .container .todo-container .task-list .task {
     display: flex;
     justify-content: space-between;
-
 }
 
 .container .todo-container .task-list .task .left-side {
     display: flex;
     max-width: fit-content;
     gap: 10px;
+}
+
+.container .todo-container .task-list .task .left-side .checkbox {
+}
+
+.completed {
+    text-decoration: line-through;
 }
 
 .container .todo-container .task-list .task .right-side {
