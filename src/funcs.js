@@ -8,9 +8,7 @@ export function addTask(
     },
 ) {
     const taskList = document.querySelector("#taskList");
-    const lastTaskId = taskList.lastElementChild
-        ? Number(taskList.lastElementChild.id)
-        : 1;
+    const lastTaskId = taskList.lastElementChild ? Number(taskList.lastElementChild.id) : 1;
     const task = document.createElement("div");
 
     const title = params.title || "";
@@ -36,11 +34,15 @@ export function addTask(
     task.addEventListener("click", function (event) {
         switch (event.target.tagName) {
             case "INPUT":
-                task.children[0].children[1].classList.toggle('completed')
+                task.children[0].children[1].classList.toggle("completed");
                 break;
 
             case "BUTTON":
                 taskList.removeChild(this);
+                break;
+
+            case "IMG":
+                setReminder(title);
                 break;
         }
         saveTasks();
@@ -96,4 +98,41 @@ export function loadPlaceholderTasks() {
         });
 }
 
-export function sortTasks() {}
+
+
+export function setReminder(title) {
+    let notificationTime = prompt("Введите время для напоминания в формате ЧЧ:ММ");
+    let time = notificationTime.match(/\b([01]\d|2[0-3]):[0-5]\d\b/i);
+
+    while (time === null) {
+        alert("Введите действительное время!");
+        notificationTime = prompt("Введите время для напоминания в формате ЧЧ:МM");
+        time = notificationTime.match(/\b([01]\d|2[0-3]):[0-5]\d\b/i);
+        console.log(time);
+    }
+
+    let parsedTime = [Number(time[0].slice(0, 2)), Number(time[0].slice(3, 5))];
+    let date;
+    let oldDateObj = new Date();
+
+    if (parsedTime[0] < oldDateObj.getHours() || parsedTime[1] < oldDateObj.getMinutes()) {
+        date = oldDateObj.getDate() + 1;
+    }
+
+    let newDateObj = new Date(
+        oldDateObj.getFullYear(),
+        oldDateObj.getMonth(),
+        date || oldDateObj.getDate(),
+        parsedTime[0],
+        parsedTime[1],
+        0,
+    );
+
+    let delay = newDateObj.getTime() - oldDateObj.getTime();
+    setTimeout(() => {
+        alert(`НАПОМИНАНИЕ! Не забудьте сделать задачу "${title}"`);
+    }, delay);
+    alert(
+        `Напоминание установлено! Осталось секунд до напоминания: ${Math.floor(delay / 1000)}. Не перезагружайте страницу, а то пропадет)`,
+    );
+}
