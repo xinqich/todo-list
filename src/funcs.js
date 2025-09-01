@@ -26,7 +26,9 @@ export function addTask(
             <div class="task-title ${completed ? "completed" : ""}">${title}</div> 
         </div>
         <div class="right-side">
-            <span class="notification"></span>
+            <span class="notification">
+                <img class="notification-icon" src="https://www.svgrepo.com/show/340904/reminder.svg" alt="Calendar with a bell in the bottom right corner">
+            </span>
             <button class="main-btn delete-btn">Удалить</button>
         </div>
     `;

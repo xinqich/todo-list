@@ -3,6 +3,12 @@
     max-width: 1000px;
 }
 
+.completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+
 .container .todo-container .task-form {
     margin-bottom: 20px;
 }
@@ -19,6 +25,9 @@
 .container .todo-container .task-list .task {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border: 1px solid yellowgreen;
+    padding: 5px;
 }
 
 .container .todo-container .task-list .task .left-side {
@@ -30,12 +39,20 @@
 .container .todo-container .task-list .task .left-side .checkbox {
 }
 
-.completed {
-    text-decoration: line-through;
-}
 
 .container .todo-container .task-list .task .right-side {
     display: flex;
     max-width: fit-content;
     gap: 10px;
+}
+
+.container .todo-container .task-list .task .right-side .notification {
+    display: flex;
+    align-items: center;
+}
+
+.container .todo-container .task-list .task .right-side .notification .notification-icon {
+    height: 28px;
+    width: 28px;
+    cursor: pointer;
 }
