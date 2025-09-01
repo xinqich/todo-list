@@ -98,7 +98,26 @@ export function loadPlaceholderTasks() {
         });
 }
 
+export function sortTasks(key) {
+    const taskList = document.querySelector("#taskList");
 
+    for (let task of taskList.children) {
+        const completed = task.children[0].children[0].checked;
+        switch (key) {
+            case "all":
+                task.style.display = 'flex'
+                break
+
+            case "completed":
+                task.style.display = completed ? 'flex' : 'none'
+                break;
+
+            case "notCompleted":
+                task.style.display = !completed ? 'flex' : 'none'
+                break;
+        }
+    }
+}
 
 export function setReminder(title) {
     let notificationTime = prompt("Введите время для напоминания в формате ЧЧ:ММ");

@@ -22,3 +22,8 @@ taskForm.addEventListener("submit", (e) => {
     });
     taskForm.reset();
 });
+
+const sortButtons = document.querySelectorAll('.sort-btn')
+document.querySelector('.sort-tasks').addEventListener('click', (event) => {
+    sortTasks(event.target.id)
+})
